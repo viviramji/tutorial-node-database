@@ -17,17 +17,16 @@ app.post('/createUser', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    store
-     .authenticate({
-         username: req.body.username,
-         password: req.body.password
-     })
-     .then(( { success }) => {
-        if (success) res.sendStatus(200) // if authentication is successful, we respond 200, else 401 
-        else res.sendStatus(401)
-     })
+  store
+    .authenticate({
+      username: req.body.username,
+      password: req.body.password
+    })
+    .then(({ success }) => {
+      if (success) res.sendStatus(200)
+      else res.sendStatus(401)
+    })
 })
-
 app.listen(7555, () => {
   console.log('Server running on http://localhost:7555')
 })

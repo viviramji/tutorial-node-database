@@ -1,4 +1,4 @@
-//creates the schema into the databas
+//creates the schema into the database
 
 exports.up = function (knex) {
     return knex.schema.createTable('user', function (t) {
@@ -8,6 +8,7 @@ exports.up = function (knex) {
       t.timestamps(false, true)
     })
   }
+  
 exports.down = function (knex) {
     return knex.schema.dropTableIfExists('user')
 }

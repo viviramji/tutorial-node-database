@@ -1,3 +1,4 @@
+//create user logic
 const CreateUser = document.querySelector('.CreateUser')
 CreateUser.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -6,16 +7,17 @@ CreateUser.addEventListener('submit', (e) => {
   post('/createUser', { username, password })
 })
 
+//login logic
 const Login = document.querySelector('.Login')
 Login.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const username = Login.querySelector('.username').value
-    const password = Login.querySelector('.password').value
-    post('/login', {username, password})
-        .then(({status}) => {
-            if(status === 200) alert('Login success')
-            else alert('login failed')
-        })
+  e.preventDefault()
+  const username = Login.querySelector('.username').value
+  const password = Login.querySelector('.password').value
+  post('/login', { username, password })
+    .then(({ status }) => {
+      if (status === 200) alert('login success')
+      else alert('login failed')
+    })
 })
 
 function post (path, data) {
